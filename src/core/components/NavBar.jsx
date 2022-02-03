@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import '../components/navBar.css';
-import logoTravelling from '../../images/logoTravelling.png'
+
 
 
 
@@ -28,9 +28,7 @@ export function NavBar() {
 
     return (
         <nav className='nav'>
-            <div className='logo'>
-                <img src={logoTravelling} onClick={handleLogo}></img>
-            </div>
+
             <ul className={active}>
                 <li className='nav_item'><a href='#' className='nav_link'>INICIO</a></li>
                 <li className='nav_item'><a href='#' className='nav_link'>CONÓCENOS</a></li>
