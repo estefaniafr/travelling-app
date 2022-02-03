@@ -1,4 +1,4 @@
-import { NavBar } from "../src/core/components/NavBar";
+import { NavBar } from "../src/core/components/navbar/NavBar";
 import './App.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
