@@ -5,14 +5,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 
 const Application = () => {
-    return (
-        <>
-            <NavBar />
-            {/* <Router>
+	return (
+		<>
+			<NavBar />
+			{/* <Router>
                 <RoutesProvider />
             </Router> */}
-        </>
-    );
+		</>
+	);
 };
 
 export default Application;

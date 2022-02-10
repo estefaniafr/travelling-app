@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
 
 export default function EventServices() {
-    return (
+	return (
 
-        <div>
+		<div>
 
 
-            <div>
-                <h1>Contenido página Servicios</h1>
-            </div>
-        </div>
+			<div>
+				<h1>Contenido página Servicios</h1>
+			</div>
+		</div>
 
-    );
+	);
 }

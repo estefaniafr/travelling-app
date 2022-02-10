@@ -3,9 +3,9 @@ import Application from "core/Application";
 
 
 const appBuilder = () => {
-    setConfig();
+	setConfig();
 
-    render(<Application />);
+	render(<Application />);
 
 };
 

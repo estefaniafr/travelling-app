@@ -1,17 +1,17 @@
 
-import React from 'react';
+import React from "react";
 
 
 export default function Index() {
-    return (
+	return (
 
-        <div>
+		<div>
 
 
-            <div>
-                <h1>Contenido página inicio</h1>
-            </div>
-        </div>
+			<div>
+				<h1>Contenido página inicio</h1>
+			</div>
+		</div>
 
-    );
+	);
 }
