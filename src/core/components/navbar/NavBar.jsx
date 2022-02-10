@@ -1,6 +1,5 @@
-import { NavLink } from "react-router-dom";
-
-import '../navBar/navBar.css';
+import { Link, NavLink } from "react-router-dom";
+import './navBar.css';
 
 export default function NavBar() {
     return (
@@ -8,14 +7,13 @@ export default function NavBar() {
             <h1>Travelling</h1>
             <nav>
                 <ul>
-                    <li><NavLink to="/" > Inicio </NavLink></li>
-                    <li><NavLink to="/About"> Quienes somos </NavLink></li>
-                    <li><NavLink to="/Services"> Servicios </NavLink></li>
-                    <li> <NavLink to="/Artist"> Artistas </NavLink></li>
-                    <li><NavLink to="/Contact"> Contacto </NavLink></li>
+                    <li><Link to={"/about"}> Quienes somos</Link></li>
+                    <li><Link to={"/services"}>Services</Link></li>
+                    <li><Link to={"/artist"}>Artist</Link></li>
+                    <li><NavLink to="/contact"> Contacto </NavLink></li>
                 </ul>
             </nav>
-            <div className='navbar-access'> <NavLink to="/Access"> Acceso </NavLink></div>
+            <div className='navbar-access'> <NavLink to="/login">Acceso</NavLink></div>
         </header>
     );
 }

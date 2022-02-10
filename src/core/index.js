@@ -1,5 +1,5 @@
-import { render, setConfig } from "core/functions";
-import Application from "core/Application";
+import { render, setConfig } from "./functions";
+import Application from "./Application";
 
 const appBuilder = () => {
 	setConfig();

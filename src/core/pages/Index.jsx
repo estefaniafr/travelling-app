@@ -6,8 +6,6 @@ export default function Index() {
     return (
 
         <div>
-
-            <NavBar />
             <div>
                 <h1>Contenido página inicio</h1>
             </div>
