@@ -1,52 +1,42 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:react/jsx-runtime"
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 13,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "no-unused-vars": [
-            "warn",
-            {
-                "vars": "all",
-                "ignoreRestSiblings": true
-            }
-        ],
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "off",
-        "indent": [
-            "error",
-            "tab",
-            {
-                "SwitchCase": 1
-            }
-        ]
-    }
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:react/jsx-runtime"
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 13,
+		"sourceType": "module"
+	},
+	"plugins": ["react"],
+	"rules": {
+		"react/prop-types": "off",
+		"linebreak-style": ["error", "windows"],
+		"quotes": ["error", "double"],
+		"semi": ["error", "always"],
+		"no-unused-vars": [
+			"warn",
+			{
+				"vars": "all",
+				"ignoreRestSiblings": true
+			}
+		],
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "off",
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		]
+	}
 }
