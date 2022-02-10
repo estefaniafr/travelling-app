@@ -1,15 +1,17 @@
-
+import NavBar from "./components/navBar/NavBar";
 import { BrowserRouter as Router } from "react-router-dom";
-import RoutesProvider from "core/RoutesProvider";
+//import RoutesProvider from "./RoutesProvider";
+
 
 
 const Application = () => {
     return (
-
-        <Router>
-            <RoutesProvider />
-        </Router>
-
+        <>
+            <NavBar />
+            {/* <Router>
+                <RoutesProvider />
+            </Router> */}
+        </>
     );
 };
 
