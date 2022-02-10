@@ -1,15 +1,13 @@
 
 import { BrowserRouter as Router } from "react-router-dom";
-import RoutesProvider from "core/RoutesProvider";
+// import RoutesProvider from "core/RoutesProvider";
 
 
 const Application = () => {
     return (
-
         <Router>
-            <RoutesProvider />
+            {/* <RoutesProvider /> */}
         </Router>
-
     );
 };
 
