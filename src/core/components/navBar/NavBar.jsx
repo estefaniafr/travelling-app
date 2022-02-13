@@ -4,25 +4,36 @@ import "./navBar.css";
 export default function NavBar() {
 	return (
 		<header>
-			<h1>Travelling</h1>
+			<img src="logoTravelling.png" />
 			<nav>
-				<ul>
+				<ul className="text-nav">
 					<li>
-						<Link to={"/about"}> Quienes somos</Link>
+						<NavLink className="tag" to={"/about"}>
+							QUIENES SOMOS
+						</NavLink>
 					</li>
 					<li>
-						<Link to={"/services"}>Services</Link>
+						<NavLink className="tag" to={"/services"}>
+							SERVICIOS
+						</NavLink>
 					</li>
 					<li>
-						<Link to={"/artist"}>Artist</Link>
+						<NavLink className="tag" to={"/artist"}>
+							ARTISTAS
+						</NavLink>
 					</li>
 					<li>
-						<NavLink to="/contact"> Contacto </NavLink>
+						<NavLink className="tag" to="/contact">
+							CONTACTO
+						</NavLink>
 					</li>
 				</ul>
 			</nav>
 			<div className="navbar-access">
-				<NavLink to="/login">Acceso</NavLink>
+				<NavLink className="tag" to="/login">
+					{" "}
+					ACCESO{" "}
+				</NavLink>
 			</div>
 		</header>
 	);

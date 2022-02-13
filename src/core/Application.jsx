@@ -2,6 +2,7 @@ import { BrowserRouter, Outlet } from "react-router-dom";
 import NavBar from "./components/navBar/NavBar";
 import RoutesProvider from "./RoutesProvider";
 
+import "core/application.css";
 import "core/sanitize/reset.css";
 
 const Application = () => {
