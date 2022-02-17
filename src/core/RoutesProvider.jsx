@@ -10,7 +10,7 @@ const RoutesProvider = () => {
 				<Route path="/services" element={<div>Page Eventos y Servicios</div>} />
 				<Route path="/artist" element={<div>Page Artistas</div>} />
 				<Route path="/contact" element={<div>Page Contacto</div>} />
-				<Route path="/login" element={<div>Formulario Login</div>} />
+				<Route path="/access" element={<div>Formulario Login</div>} />
 			</Routes>		
 		</>
 	)
