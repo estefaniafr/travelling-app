@@ -2,6 +2,7 @@
 import { BrowserRouter, Outlet } from "react-router-dom";
 import NavBar from "./components/Navbar/NavBar";
 import RoutesProvider from "./RoutesProvider";
+import Layout from "./components/Layout";
 
 
 const Application = () => {
@@ -9,8 +10,10 @@ const Application = () => {
         <>
             <BrowserRouter>
                 <NavBar />
-                <RoutesProvider />
-                <Outlet />
+                <Layout>
+                    <RoutesProvider />
+                    <Outlet />
+                </Layout>
             </BrowserRouter>
         </>
     );

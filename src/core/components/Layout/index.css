@@ -1,0 +1,9 @@
+.layout-main_container {
+    background-color: beige;
+    width: 70%;
+    min-width: 70%;
+    height: 100vh;
+    margin: 0 auto;
+    border: 0;
+
+}
