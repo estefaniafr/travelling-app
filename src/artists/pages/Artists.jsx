@@ -1,5 +1,3 @@
-import "./artist.css";
-
 export default function Artists() {
 	return (
 		<div>

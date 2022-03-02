@@ -1,5 +1,3 @@
-import "./eventServices.css";
-
 export default function EventServices() {
 	return (
 		<div>

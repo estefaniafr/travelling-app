@@ -1,38 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Abel&family=Architects+Daughter&family=Bebas+Neue&family=Signika+Negative:wght@300;600&display=swap");
-
-/* * {
-	box-sizing: border-box;
-	font-family: "Bebas Neue", cursive;
-	margin: 0;
-	padding: 0;
-}
-
-button {
-	background-color: #c197d2;
-	border: 2px solid #c197d2;
-	border-radius: 8px;
-	color: #575555;
-	cursor: pointer;
-	font-size: 25px;
-	padding: 16px 24px;
-	text-align: center;
-	width: 140px;
-}
-
 header {
-	align-items: center;
-	background: #575555;
 	display: flex;
 	flex-direction: row;
+	align-content: center;
 	justify-content: space-between;
 	padding: 0px 20px;
+	background: cadetblue;
 }
 
 nav ul {
+	margin-top: 40px;
 	display: flex;
 	flex-direction: row;
 	list-style-type: none;
-	margin-top: 40px;
 }
 
 nav a {
@@ -41,164 +20,6 @@ nav a {
 	text-decoration: none;
 }
 
-.access-link {
-	background: #231d19;
-	border-radius: 6px;
-	height: 50px;
-	margin-right: 50px;
-	text-align: center;
-	width: 100px;
-}
-
-.logo {
-	height: 65px;
-	margin-left: 20px;
-	margin-top: 20px;
-	width: 65px;
-}
-
 .navbar-access {
-	margin-right: 30px;
-	margin-top: 30px;
-}
-
-.nav_links {
-	margin-top: 20px;
-}
-
-.nav_toggler {
-	cursor: pointer;
-	display: none;
-}
-
-.nav_toggler div {
-	background: #c197d2;
-	height: 0.2rem;
-	margin: 0.4rem;
-	width: 3rem;
-}
-
-.tag {
-	color: #c197d2;
-	font-size: 25px;
-	font-weight: bold;
-	text-decoration: none;
-}
-
-.text-nav {
-	margin-top: 30px;
-}
-
-@media screen and (max-width: 768px) {
-	.nav_toggler {
-		display: block;
-	}
-	.nav_links {
-		position: fixed;
-		top: 7vh;
-		right: 0;
-		width: 50%;
-		height: 93vh;
-		background: #575555;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		transform: translateX(10%);
-	}
-} */
-
-*::before {
-	margin: 0;
-	box-sizing: border-box;
-}
-
-* {
-	font-family: "Bebas Neue", cursive;
-}
-
-.nav {
-	align-items: center;
-	background: #575555;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	padding: 0px 20px;
-	background: #575555;
-}
-
-.access_button {
-	margin-right: 20px;
-	font-size: 25px;
-	color: #575555;
-	background: #c197d2;
-	border: 2px solid #c197d2;
-	border-radius: 15px;
-	width: 130px;
-}
-
-.brand {
-	margin-left: 20px;
-}
-
-.nav_menu {
-	display: flex;
-	align-items: center;
-}
-
-.nav_item {
-	color: white;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	text-decoration: none;
-	padding: 20px 20px;
-	height: 100%;
-	cursor: pointer;
-	font-size: 25px;
-}
-
-.nav_toggler div {
-	width: 2.5rem;
-	height: 0.2rem;
-	margin: 0.4rem;
-	background: #c197d2;
-}
-
-.nav_toggler {
-	cursor: pointer;
-	display: none;
-}
-
-@media screen and (max-width: 768px) {
-	.access_button {
-		margin-right: 0;
-		justify-content: center;
-	}
-
-	.nav {
-		justify-content: space-around;
-		padding: 30px 50px;
-	}
-
-	.nav_toggler {
-		display: block;
-		padding-top: 50px;
-	}
-
-	.nav_menu {
-		position: fixed;
-		top: 7vh;
-		right: 0;
-		width: 50%;
-		height: 93vh;
-		background: #575555;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		transform: translateX(10%);
-	}
-
-	.nav_item {
-		color: #c197d2;
-	}
+	margin-top: 40px;
 }
