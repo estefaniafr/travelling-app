@@ -1,19 +1,24 @@
+import About from "about/pages/About";
+import Artists from "artists/pages/Artists";
+import ContactUs from "contact/pages/ContactUs";
+import EventServices from "event-services/pages/EventServices";
 import { Routes, Route } from "react-router-dom";
-import HomePage from "core/pages/HomePage"
+import Access from "./pages/Access";
+import HomePage from "./pages/HomePage";
 
 const RoutesProvider = () => {
 	return (
 		<>
 			<Routes>
 				<Route path="/" element={<HomePage />} />
-				<Route path="/about" element={<div>Page Quienes somos?</div>} />
-				<Route path="/services" element={<div>Page Eventos y Servicios</div>} />
-				<Route path="/artist" element={<div>Page Artistas</div>} />
-				<Route path="/contact" element={<div>Page Contacto</div>} />
-				<Route path="/access" element={<div>Formulario Login</div>} />
-			</Routes>		
+				<Route path="/about" element={<About />} />
+				<Route path="/services" element={<EventServices />} />
+				<Route path="/artist" element={<Artists />} />
+				<Route path="/contact" element={<ContactUs />} />
+				<Route path="/access" element={<Access />} />
+			</Routes>
 		</>
-	)
+	);
 };
 
 export default RoutesProvider;

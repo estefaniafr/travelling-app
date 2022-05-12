@@ -1,0 +1,13 @@
+.grid-container {
+	background-color: azure;
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.grid-item {
+	background-color: darkolivegreen;
+	border: 5px solid black;
+	color: white;
+	height: 200px;
+}
