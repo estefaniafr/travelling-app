@@ -3,8 +3,8 @@ import Artists from "artists/pages/Artists";
 import ContactUs from "contact/pages/ContactUs";
 import EventServices from "event-services/pages/EventServices";
 import { Routes, Route } from "react-router-dom";
+import HomePage from "core/pages/HomePage";
 import Access from "./pages/Access";
-import HomePage from "./pages/HomePage";
 
 const RoutesProvider = () => {
 	return (
@@ -16,7 +16,7 @@ const RoutesProvider = () => {
 				<Route path="/artist" element={<Artists />} />
 				<Route path="/contact" element={<ContactUs />} />
 				<Route path="/access" element={<Access />} />
-			</Routes>
+			</Routes>		
 		</>
 	);
 };
