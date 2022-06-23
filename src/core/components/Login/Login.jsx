@@ -1,19 +1,23 @@
 import { useFormik } from "formik";
-import Box from "../Box";
+import Box from "../Box/Box";
 import api from "core/api";
 
 const initialValues = {
-	email: "",
-	password: "",
+	email: undefined,
+	password: undefined,
 };
 
 const Login = () => {
 	const formik = useFormik({
 		initialValues,
 		onSubmit: async (values) => {
-			const isLogged = await api.get({ path: "/login" });
-			if (isLogged) {
-				console.log(values);
+			try {
+				const isLogged = await api.post({ path: "/login" });
+				if (isLogged) {
+					console.log(values);
+				}				
+			} catch (error) {
+				console.log(error);
 			}
 		},
 	});
