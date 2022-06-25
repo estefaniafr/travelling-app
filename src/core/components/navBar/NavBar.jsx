@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "core/context/UserContext";
+
 import "./navBar.css";
 
 export default function NavBar() {
+	const { user, setUser } = useContext(UserContext);
 	return (
 		<header>
 			<NavLink to="/">
@@ -23,8 +27,24 @@ export default function NavBar() {
 					</li>
 				</ul>
 			</nav>
-			<div className="navbar-access">
-				<NavLink to="/access"> Acceso </NavLink>
+			<div className="navbar__box--access">
+				{!user && <NavLink to="/access"> Acceso </NavLink>}
+				{!user ? (
+					<button onClick={() => setUser("User")}>test</button>
+				) : (
+					<div className="navbar__menu--dropdown">
+						User
+						<div className="navbar__menu--dropdown-content">
+							{user.role === "ADMIN" ? (
+								<a>Añadir contenido</a>
+							) : (
+								<a>Mis favoritos</a>
+							)}
+							<NavLink to="/profile">Perfil</NavLink>
+							<a onClick={() => setUser(undefined)}>Cerrar sesion</a>
+						</div>
+					</div>
+				)}
 			</div>
 		</header>
 	);
