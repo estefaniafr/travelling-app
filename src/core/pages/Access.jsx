@@ -1,5 +1,6 @@
 import "./access.css";
 import { useState } from "react";
+import Login from "core/components/login/Login";
 import Register from "core/components/Register/Register";
 
 export default function Access() {
