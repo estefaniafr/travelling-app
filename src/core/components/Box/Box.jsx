@@ -11,6 +11,7 @@ const Box = ({ children, className = "box__div--container" }) => {
 
 Box.propTypes = {
 	children: PropTypes.node.isRequired,
+	className: PropTypes.string,
 };
 
 export default Box;
