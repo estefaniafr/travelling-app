@@ -1,11 +1,9 @@
 import PropTypes from "prop-types";
 import "./box.css";
 
-const Box = ({ children }) => {
-const Box = ({ children, className = "box-container" }) => {
+const Box = ({ children, className = "box__div--container" }) => {
 	return (
 		<>
-			<div className="box-container">{children}</div>
 			<div className={className}>{children}</div>
 		</>
 	);
@@ -13,7 +11,6 @@ const Box = ({ children, className = "box-container" }) => {
 
 Box.propTypes = {
 	children: PropTypes.node.isRequired,
-	className: PropTypes.string.isRequired,
 };
 
 export default Box;
