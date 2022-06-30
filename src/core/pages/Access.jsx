@@ -1,7 +1,8 @@
-import "./access.css";
 import { useState } from "react";
-import Login from "core/components/login/Login";
+import Login from "core/components/Login/Login";
 import Register from "core/components/Register/Register";
+
+import "./Access.css";
 
 export default function Access() {
 	const [toggle, setToggle] = useState(false);
