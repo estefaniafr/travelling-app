@@ -68,6 +68,7 @@ const Register = () => {
 					<Button kind="secondary" type="reset" value="Borrar datos" />
 					<Button type="submit" value="Registrar" />
 				</Box>
+				<a href="#">Tienes una cuenta? Inicia sesión</a>
 			</form>
 		</Box>
 	);
