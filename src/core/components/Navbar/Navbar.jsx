@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "core/context/UserContext";
 
-import "./navBar.css";
+import "./Navbar.css";
 
-export default function NavBar() {
+export default function Navbar() {
 	const { user, setUser } = useContext(UserContext);
 	return (
 		<header>

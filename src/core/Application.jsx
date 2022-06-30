@@ -1,5 +1,5 @@
 import { BrowserRouter, Outlet } from "react-router-dom";
-import NavBar from "./components/navBar/NavBar";
+import Navbar from "./components/Navbar/Navbar";
 import RoutesProvider from "./RoutesProvider";
 import UserProvider from "./context/UserContext";
 import Layout from "./components/Layout/Layout";
@@ -9,7 +9,7 @@ const Application = () => {
 		<>
 			<BrowserRouter>
 				<UserProvider>
-					<NavBar />
+					<Navbar />
 					<Layout>
 						<RoutesProvider />
 						<Outlet />
