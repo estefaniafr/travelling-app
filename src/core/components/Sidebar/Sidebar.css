@@ -1,0 +1,30 @@
+.sidebar__box--container {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	background-color: rgb(255, 255, 255);
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+}
+
+.--open {
+	width: 400px;
+}
+
+.sidebar__span--close {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+	color: rgb(160, 160, 160);
+}
+
+@media screen and (max-height: 450px) {
+	.sidebar__box--container {
+		padding-top: 15px;
+	}
+}
