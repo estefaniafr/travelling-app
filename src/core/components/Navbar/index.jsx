@@ -1,36 +1,49 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "core/context/UserContext";
+import Box from "core/components/Box/Box";
+import Sidebar from "core/components/Sidebar/Sidebar";
+import Login from "core/components/Login/Login";
+import Register from "core/components/Register/Register";
 import "./index.css";
 
 export default function Navbar() {
 	const { user, setUser } = useContext(UserContext);
-	return (
-		<header>
-			<NavLink to="/" ><h1>Travelling</h1></NavLink>
-			<nav>
-				<ul>
-					<li><NavLink to="/about"> Quienes somos </NavLink></li>
-					<li><NavLink to="/services"> Servicios </NavLink></li>
-					<li><NavLink to="/artist"> Artistas </NavLink></li>
-					<li><NavLink to="/contact"> Contacto </NavLink></li>
-				</ul>
-			</nav>
-			<div className="navbar__box--access">
-				{!user && <NavLink to="/access"> Acceso </NavLink>}
-				{!user ? <button onClick={() => setUser("User")}>test</button> : 
-					<div className="navbar__menu--dropdown">
-					User
-						<div className="navbar__menu--dropdown-content">
-							{user.role === "ADMIN" ? <a>Añadir contenido</a> : <a>Mis favoritos</a>}						
-							<NavLink to="/profile">Perfil</NavLink>
-							<a onClick={() => setUser(undefined)}>Cerrar sesion</a>
-						</div>
-					</div>
-				}
-			</div>
+	const [open, setOpenSidebar] = useState(false);
+	const [showRegister, setShowRegister] = useState(false);
 
-		</header>
+	return (
+		<>
+			<Box className="navbar__box--container">
+				<NavLink to="/">
+					<h1>Travelling</h1>
+				</NavLink>
+				<Box className="navbar__box--screens">
+					<NavLink to="/about"> Quienes somos </NavLink>
+
+					<NavLink to="/services"> Servicios </NavLink>
+
+					<NavLink to="/artist"> Artistas </NavLink>
+
+					<NavLink to="/contact"> Contacto </NavLink>
+				</Box>
+				<Box className="navbar__box--access">
+					{!user && (
+						<span to="/access" onClick={() => setOpenSidebar(true)}>
+							Acceso
+						</span>
+					)}
+				</Box>
+			</Box>
+			<Sidebar isOpen={open} onClose={() => setOpenSidebar(false)}>
+				<Box className="navbar__box--sidebar">
+					{showRegister ? (
+						<Register setToggle={setShowRegister} />
+					) : (
+						<Login setToggle={setShowRegister} />
+					)}
+				</Box>
+			</Sidebar>
+		</>
 	);
 }
-
