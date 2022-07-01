@@ -1,17 +1,6 @@
-.register__box--container {
-    display: flex;
-    gap: 20px;
-
-    background-color: white;
-    border: solid 2px black;
-    border-radius: 20px;
-    padding: 24px;
-    width: fit-content;
-}
-
 .register__box--buttons {
-    margin-top: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	margin-top: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
