@@ -1,0 +1,17 @@
+.login__box--buttons {
+	margin-top: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.login__field--element {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	outline-color: rgb(84 105 212 / 0.5);
+}
