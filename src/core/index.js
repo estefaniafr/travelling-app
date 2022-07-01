@@ -1,6 +1,7 @@
 import { render, setConfig } from "./functions";
-import Application from "./Application";
-import "../core/sanitize/reset.css";
+import Application from "core/Application";
+import "core/sanitize/reset.css";
+import "../../src/index.css";
 
 const appBuilder = () => {
 	setConfig();

@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
-import "./box.css";
+import "./Box.css";
 
-const Box = ({ children, className = "box__div--container" }) => {
+const Box = ({ children, className = "box__div--container", ...props }) => {
 	return (
 		<>
-			<div className={className}>{children}</div>
+			<div {...props} className={className}>
+				{children}
+			</div>
 		</>
 	);
 };

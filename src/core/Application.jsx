@@ -8,13 +8,12 @@ const Application = () => {
 	return (
 		<>
 			<BrowserRouter>
-				<UserProvider >
+				<UserProvider>
 					<Navbar />
 					<Layout>
 						<RoutesProvider />
 						<Outlet />
 					</Layout>
-
 				</UserProvider>
 			</BrowserRouter>
 		</>
