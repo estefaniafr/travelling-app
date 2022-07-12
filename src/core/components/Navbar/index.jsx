@@ -35,7 +35,10 @@ export default function Navbar() {
 					)}
 				</Box>
 			</Box>
-			<Sidebar isOpen={open} onClose={() => setOpenSidebar(false)}>
+			<Sidebar
+				isOpen={open}
+				onClose={() => [setOpenSidebar(false), setShowRegister(false)]}
+			>
 				<Box className="navbar__box--sidebar">
 					{showRegister ? (
 						<Register setToggle={setShowRegister} />
