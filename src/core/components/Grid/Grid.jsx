@@ -1,13 +1,18 @@
 import PropTypes from "prop-types";
-import "./grid.css";
+import { useMemo } from "react";
+import "./Grid.css";
 
 const Grid = ({ container, children, widthColumn }) => {
-	const column = {
-		gridTemplateColumns: `repeat(auto-fit, minmax(${widthColumn}px, 1fr))`,
-	};
+	const column = useMemo(
+		() => ({
+			gridTemplateColumns: `repeat(auto-fit, minmax(${widthColumn}px, 1fr))`,
+		}),
+		[widthColumn]
+	);
+
 	return (
 		<div
-			className={container ? "grid-container" : "grid-item"}
+			className={container ? "grid__container" : ""}
 			style={container ? column : {}}
 		>
 			{children}
@@ -16,7 +21,7 @@ const Grid = ({ container, children, widthColumn }) => {
 };
 
 Grid.defaultProps = {
-	widthColumn: 200,
+	widthColumn: "auto",
 	container: false,
 };
 

@@ -1,8 +1,9 @@
 .login__box--buttons {
-	margin-top: 24px;
-	display: flex;
+	margin-top: 48px;
+	/* float: right; */
+	/* display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-between; */
 }
 
 .login__field--element {
@@ -14,4 +15,9 @@
 	border-radius: 4px;
 	box-sizing: border-box;
 	outline-color: rgb(84 105 212 / 0.5);
+}
+
+.login__field--container {
+	margin-top: 8px;
+	padding: 8px 0;
 }

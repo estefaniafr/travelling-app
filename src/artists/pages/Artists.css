@@ -1,5 +1,9 @@
-.title {
-	padding-top: 200px;
-	padding-left: 200px;
-	color: #c197d2;
+.category-page__box--container {
+	width: 100%;
+	height: fit-content;
+	box-sizing: border-box;
+}
+
+.category-page__box--container h1 {
+	color: white;
 }

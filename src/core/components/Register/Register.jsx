@@ -29,7 +29,7 @@ const Register = ({ setToggle }) => {
 
 	return (
 		<form onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
-			<h3>Registro</h3>
+			<h1>Registro</h1>
 			<TextField
 				name="name"
 				label="Nombre"

@@ -37,20 +37,27 @@ export const Login = ({ setToggle }) => {
 			{({ errors, touched, validateField, validateForm }) => (
 				<Form>
 					<h1>Login</h1>
-					<Field
-						className="login__field--element"
-						name="email"
-						validate={validateEmail}
-					/>
-					{errors.email && touched.email && <Box>{errors.email}</Box>}
-
-					<Field
-						className="login__field--element"
-						type="password"
-						name="password"
-						validate={validateUsername}
-					/>
-					{errors.password && touched.password && <Box>{errors.password}</Box>}
+					<Box className="login__field--container">
+						<label htmlFor="email">Email</label>
+						<Field
+							className="login__field--element"
+							name="email"
+							validate={validateEmail}
+						/>
+						{errors.email && touched.email && <Box>{errors.email}</Box>}
+					</Box>
+					<Box className="login__field--container">
+						<label htmlFor="password">Contraseña</label>
+						<Field
+							className="login__field--element"
+							type="password"
+							name="password"
+							validate={validateUsername}
+						/>
+						{errors.password && touched.password && (
+							<Box>{errors.password}</Box>
+						)}
+					</Box>
 
 					<a href="#" onClick={() => setToggle((old) => !old)}>
 						No tienes cuenta? Regístrate

@@ -1,10 +1,9 @@
-import Box from "../components/Box/Box";
-import Title from "../components/Title/Title";
-
 export default function HomePage() {
 	return (
-		<Box>
-			<Title text="Titulo de HomePage" />
-		</Box>
+		<section className="home__section--container">
+			<h1 style={{ color: "white", backgroundColor: "#c197d2" }}>
+				Titulo de HomePage
+			</h1>
+		</section>
 	);
 }
