@@ -1,11 +1,127 @@
 .footer__container {
+	padding: 24px 16px;
 	margin-top: 24px;
-	height: 200px;
+	height: 280px;
 	position: static;
 	left: 0;
 	bottom: 0;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.4);
 	color: white;
-	text-align: center;
+}
+
+.footer__grid--areas {
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+	grid-template-areas: "contact news travelling follow-us";
+	height: 100%;
+}
+
+.footer__grid--contact {
+	grid-area: contact;
+	height: 250px;
+	padding-left: 24px;
+}
+
+.footer__grid--news {
+	grid-area: news;
+	height: 250px;
+	padding-left: 24px;
+}
+
+.footer__grid--follow-us {
+	grid-area: follow-us;
+	height: 250px;
+	padding-left: 24px;
+}
+
+.footer__grid--travelling {
+	grid-area: travelling;
+	height: 250px;
+	padding-left: 24px;
+}
+
+.footer__title--section {
+	width: 30%;
+	margin-bottom: 24px;
+	padding-left: 8px;
+	border-left: 4px solid white;
+}
+
+.footer__box--section {
+	display: flex;
+	margin-right: 16px;
+	margin-bottom: 16px;
+}
+
+.footer__icon--contact {
+	padding: 8px;
+}
+
+.footer__section--content {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+}
+
+.footer__box--news-scroll {
+	height: 57%;
+	overflow-y: scroll;
+}
+
+.footer__box--news {
+	display: flex;
+	margin-right: 16px;
+	margin-bottom: 16px;
+
+	border-bottom: 1px solid white;
+}
+
+.footer__image--news {
+	padding: 0 8px 8px 8px;
+}
+
+.footer__strong--name:hover {
+	color: #c197d2;
+	cursor: pointer;
+}
+
+.footer__ul--list {
+	list-style: circle;
+}
+
+.footer__ul--list li:hover {
+	list-style: circle;
+	animation: headShake; /* referring directly to the animation's @keyframe declaration */
+	animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+a,
+a:hover,
+a:focus {
+	text-decoration: none;
+	transition: all 0.4s ease-out;
+}
+
+.footer__box--icons-group {
+	margin-left: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.footer__box--icons-group div:hover {
+	animation: headShake; /* referring directly to the animation's @keyframe declaration */
+	animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+.footer__icon--circle {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 1px solid white;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
