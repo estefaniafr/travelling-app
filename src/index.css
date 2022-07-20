@@ -1,5 +1,4 @@
 body {
-	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
 		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
 		sans-serif;
@@ -7,3 +6,26 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	background-color: #c197d2;
 }
+
+/* Scrollbar style */
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: grey;
+	border: 1px solid grey;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #c197d2;
+}
+
+/* Scrollbar style end */
