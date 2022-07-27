@@ -1,0 +1,33 @@
+.about-page__box--container {
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    background-color: #c197d2;
+}
+
+.about-page__box--image img{
+    width: 90%;
+    height: 500px;
+    display: block;
+    margin: 0px auto;
+}
+
+.about-page__box--text h1 {
+    text-align: center;
+    color: white;
+}
+
+.about-page__box--text p {
+    margin: 40px;
+    text-align: center;
+    color: white;
+}
+
+.about-page__box--middel-image img{
+    width: 70%;
+    height: 500px;
+    display: block;
+    margin: 0px auto;   
+}
+
+
