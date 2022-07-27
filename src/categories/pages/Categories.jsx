@@ -1,7 +1,7 @@
 import Box from "core/components/Box/Box";
 import Grid from "core/components/Grid/Grid";
 import Card from "core/components/Card/Card";
-import "./Artists.css";
+import "./Categories.css";
 
 const showsInstrumental = Array(10)
 	.fill({
@@ -19,7 +19,7 @@ const showsInstrumental = Array(10)
 export default function Artists() {
 	return (
 		<Box className="category-page__box--container">
-			<h1>Contenido página Artistas</h1>
+			<h1>Listado de categorías</h1>
 			<Grid container widthColumn={300}>
 				{showsInstrumental.map(
 					({ id, title, subtitle, description, catergory, picture }) => (

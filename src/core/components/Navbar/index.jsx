@@ -23,7 +23,7 @@ export default function Navbar() {
 
 					<NavLink to="/services"> Servicios </NavLink>
 
-					<NavLink to="/artist"> Artistas </NavLink>
+					<NavLink to="/categories"> Categorías </NavLink>
 
 					<NavLink to="/contact"> Contacto </NavLink>
 				</Box>
