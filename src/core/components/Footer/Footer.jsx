@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoLocationSharp } from "react-icons/io5";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
@@ -12,6 +12,7 @@ import Box from "core/components/Box/Box";
 import "./Footer.css";
 
 const Footer = () => {
+	let navigate = useNavigate();
 	const contactList = useMemo(
 		() => [
 			{
@@ -33,7 +34,7 @@ const Footer = () => {
 		[]
 	);
 
-	const artistList = useMemo(
+	const showsList = useMemo(
 		() => [
 			{
 				image: "https://www.w3schools.com/howto/img_avatar.png",
@@ -86,14 +87,14 @@ const Footer = () => {
 					</Box>
 
 					<Box className="footer__box--news-scroll">
-						{artistList.map(({ image, name, description }, i) => (
+						{showsList.map(({ image, name, description }, i) => (
 							<Box key={i} className="footer__box--news">
 								<Box className="footer__image--news">
 									<img src={image} alt="Avatar" width={50} height={50} />
 								</Box>
 								<Box className="footer__section--content">
 									<strong
-										onClick={() => alert("")}
+										onClick={() => navigate(`/show/${i}`)}
 										className="footer__strong--name"
 									>
 										{name}

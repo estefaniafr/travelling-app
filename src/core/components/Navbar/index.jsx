@@ -19,13 +19,13 @@ export default function Navbar() {
 					<h1>Travelling</h1>
 				</NavLink>
 				<Box className="navbar__box--screens">
-					<NavLink to="/about"> Quienes somos </NavLink>
+					<NavLink to="/about">Quienes somos</NavLink>
 
-					<NavLink to="/services"> Servicios </NavLink>
+					<NavLink to="/services">Servicios</NavLink>
 
-					<NavLink to="/categories"> Categorías </NavLink>
+					<NavLink to="/shows">Espectaculos</NavLink>
 
-					<NavLink to="/contact"> Contacto </NavLink>
+					<NavLink to="/contact">Contacto</NavLink>
 				</Box>
 				<Box className="navbar__box--access">
 					{!user && (
