@@ -1,10 +1,29 @@
+import { useContext, useEffect } from "react";
 import { Formik, Form, Field } from "formik";
+
+import useAxiosPost from "core/api/hooks/useAxiosPost";
+import { UserContext } from "core/context/UserContext";
 import Box from "../Box/Box";
 import Button from "../Button/Button";
 
 import "./Login.css";
 
-export const Login = ({ setToggle }) => {
+export const Login = ({ setToggle, userEmail, onUserLogged }) => {
+	const { setUser } = useContext(UserContext);
+
+	const { data: user, mutate, error } = useAxiosPost("/auth/login");
+
+	useEffect(() => {
+		if (error) {
+			console.log("Login useEffect", error);
+		}
+
+		if (user) {
+			setUser(user);
+			onUserLogged(user);
+		}
+	}, [user, error]);
+
 	const validateEmail = (value) => {
 		let error;
 		if (!value) {
@@ -23,16 +42,17 @@ export const Login = ({ setToggle }) => {
 		return error;
 	};
 
+	const handleSubmit = (values) => {
+		mutate(values);
+	};
+
 	return (
 		<Formik
 			initialValues={{
-				email: "",
-				password: "",
+				email: userEmail ? userEmail : "jhony@travelling.com",
+				password: "1234",
 			}}
-			onSubmit={(values) => {
-				// same shape as initial values
-				console.log(values);
-			}}
+			onSubmit={handleSubmit}
 		>
 			{({ errors, touched, validateField, validateForm }) => (
 				<Form>

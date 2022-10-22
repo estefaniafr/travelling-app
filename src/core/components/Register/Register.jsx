@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { useFormik } from "formik";
-import useAxiosGet from "core/api/hooks/useAxiosGet";
+import useAxiosPost from "core/api/hooks/useAxiosPost";
 
 import Box from "../Box/Box";
 import TextField from "../TextField/TextField";
@@ -15,17 +16,24 @@ const initialValues = {
 	phone: "",
 };
 
-const Register = ({ setToggle }) => {
-	const { data, loaded } = useAxiosGet("/users");
+const Register = ({ setToggle, onRegister }) => {
+	const { data: email, mutate, error } = useAxiosPost("/auth/register");
+
+	useEffect(() => {
+		console.log(email);
+	}, [email]);
+
 	const formik = useFormik({
 		initialValues,
 		validateOnChange: () => console.log("validate"),
-		onSubmit: async (values) => {
-			if (!loaded) {
-				console.log(values);
-			}
+		onSubmit: (values) => {
+			mutate(values);
+			email && onRegister(email);
+			handleToggleForm();
 		},
 	});
+
+	const handleToggleForm = () => setToggle((old) => !old);
 
 	return (
 		<form onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
@@ -63,7 +71,7 @@ const Register = ({ setToggle }) => {
 				onChange={formik.handleChange}
 				value={formik.values.phone}
 			/>
-			<a href="#" onClick={() => setToggle((old) => !old)}>
+			<a href="#" onClick={() => handleToggleForm()}>
 				Tienes una cuenta? Inicia sesión
 			</a>
 

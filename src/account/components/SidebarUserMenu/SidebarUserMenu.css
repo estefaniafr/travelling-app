@@ -1,0 +1,40 @@
+.sidebar-user-menu__title--container {
+	display: flex;
+	align-content: center;
+	margin: 24px;
+}
+
+.sidebar-user-menu__title {
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+	color: black;
+}
+
+.sidebar-user-menu__item--list {
+	display: flex;
+	align-content: center;
+	justify-content: space-between;
+	margin: 24px;
+	height: 90%;
+}
+
+.sidebar-user-menu__item--list ul {
+	padding-left: 0;
+	width: 100%;
+}
+
+.sidebar-user-menu__item--container {
+	display: flex;
+	align-content: center;
+	padding: 15px 16px;
+}
+
+.sidebar-user-menu__item--container:hover {
+	background-color: #c197d2;
+	cursor: pointer;
+}
+
+.sidebar-user-menu__item--icon {
+	margin-right: 5px;
+}

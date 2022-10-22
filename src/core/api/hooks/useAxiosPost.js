@@ -1,26 +1,31 @@
 import { useEffect, useState } from "react";
 import api from "../../api";
 
-const useAxiosPost = (url, payload) => {
+const useAxiosPost = (url) => {
 	const [data, setData] = useState(null);
 	const [error, setError] = useState("");
 	const [loaded, setLoaded] = useState(false);
+	const [payload, setPayload] = useState(undefined);
 
 	useEffect(() => {
-		(async () => {
-			try {
-				const response = await api.post(url, payload);
+		if (payload) {
+			(async () => {
+				try {
+					const response = await api.post(url, payload);
 
-				setData(response.data);
-			} catch (error) {
-				setError(error.message);
-			} finally {
-				setLoaded(true);
-			}
-		})();
-	}, []);
+					setData(response.data);
+				} catch (error) {
+					setError(error.message);
+				} finally {
+					setLoaded(true);
+				}
+			})();
+		}
+	}, [payload]);
 
-	return { data, error, loaded };
+	const mutate = (body) => setPayload(body);
+
+	return { data, error, loaded, mutate };
 };
 
 export default useAxiosPost;

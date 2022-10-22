@@ -10,9 +10,14 @@ import { RiYoutubeFill } from "react-icons/ri";
 import Box from "core/components/Box/Box";
 
 import "./Footer.css";
+import useAxiosGet from "core/api/hooks/useAxiosGet";
 
 const Footer = () => {
 	let navigate = useNavigate();
+
+	// recuperar los shows mas recientes
+	const { data: shows = [], error, loaded } = useAxiosGet("/show/list");
+
 	const contactList = useMemo(
 		() => [
 			{

@@ -1,0 +1,21 @@
+.account-page__section--grid {
+	display: grid;
+	grid-template-columns: 30% auto;
+	background-color: white;
+	height: 100vh;
+}
+
+.account-page__column--menu {
+	display: flex;
+	flex-direction: column;
+}
+
+.account-page__column--content {
+	padding: 16px 64px;
+}
+
+.account-page__item--card {
+	flex: auto;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	padding: 24px;
+}
