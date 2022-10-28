@@ -8,7 +8,7 @@ import Button from "../Button/Button";
 
 import "./Login.css";
 
-export const Login = ({ setToggle, userEmail, onUserLogged }) => {
+const Login = ({ setToggle, userEmail, onUserLogged }) => {
 	const { setUser } = useContext(UserContext);
 
 	const { data: user, mutate, error } = useAxiosPost("/auth/login");
