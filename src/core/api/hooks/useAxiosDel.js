@@ -1,26 +1,31 @@
 import { useEffect, useState } from "react";
 import api from "../../api";
 
-const useAxiosDel = (url, params) => {
+const useAxiosDel = (url) => {
 	const [data, setData] = useState(null);
 	const [error, setError] = useState("");
 	const [loaded, setLoaded] = useState(false);
+	const [payload, setPayload] = useState(undefined);
 
 	useEffect(() => {
-		(async () => {
-			try {
-				const response = await api.delete(url, { params });
+		if (payload) {
+			(async () => {
+				try {
+					const response = await api.delete(`${url}/${payload}`);
 
-				setData(response.data);
-			} catch (error) {
-				setError(error.message);
-			} finally {
-				setLoaded(true);
-			}
-		})();
-	}, []);
+					setData(response.data);
+				} catch (error) {
+					setError(error.message);
+				} finally {
+					setLoaded(true);
+				}
+			})();
+		}
+	}, [payload]);
 
-	return { data, error, loaded };
+	const mutate = (id) => setPayload(id);
+
+	return { data, error, loaded, mutate };
 };
 
 export default useAxiosDel;

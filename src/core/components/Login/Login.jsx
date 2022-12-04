@@ -49,8 +49,8 @@ const Login = ({ setToggle, userEmail, onUserLogged }) => {
 	return (
 		<Formik
 			initialValues={{
-				email: userEmail ? userEmail : "jhony@travelling.com",
-				password: "1234",
+				email: userEmail ? userEmail : "carlos@travelling.com",
+				password: "123456",
 			}}
 			onSubmit={handleSubmit}
 		>

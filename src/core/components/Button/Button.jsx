@@ -2,26 +2,27 @@ import PropTypes from "prop-types";
 import "./Button.css";
 
 const Button = ({
-	className = "button__button--wrapper",
+	className = "",
 	type = "button",
 	kind = "primary",
 	value = "button",
+	onClick = () => ({}),
 }) => {
 	const getKindStyle = () => {
 		switch (kind) {
 			case "primary":
-				return `${className} btn-5`;
+				return `${className} button__button--wrapper btn-5`;
 			case "secondary":
-				return `${className} btn-1`;
+				return `${className} button__button--wrapper btn-1`;
 			case "standard":
-				return `${className} btn-13`;
+				return `${className} button__button--wrapper btn-13`;
 			default:
-				return `${className}`;
+				return `${className} button__button--wrapper`;
 		}
 	};
 	return (
-		<button className={getKindStyle()} type={type}>
-			{value}
+		<button className={getKindStyle()} type={type} onClick={onClick}>
+			<div className="button__button--value">{value}</div>
 		</button>
 	);
 };

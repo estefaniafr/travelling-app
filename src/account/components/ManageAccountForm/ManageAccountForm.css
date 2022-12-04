@@ -1,0 +1,29 @@
+.manage-account-form__section--title {
+	margin-bottom: 0;
+}
+
+.manage-account-form__role {
+	padding: 0 8px;
+	background-color: darkgray;
+}
+
+.manage-account-form__form--container {
+	margin-top: 8px;
+	padding: 8px 0;
+}
+
+.manage-account-form__field {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	outline-color: rgb(84 105 212 / 0.5);
+}
+
+.manage-account-form__buttons--container {
+	padding: 24px 16px;
+	border-top: 1px solid darkgray;
+}

@@ -41,16 +41,12 @@ const SidebarUserMenu = ({ isOpen, onClose }) => {
 			</Box>
 			<Box className="sidebar-user-menu__item--list">
 				<ul>
-					{user?.role === ROLES.ADMIN_ROLE && (
-						<Box className="sidebar-user-menu__item--container">
-							<Box className="sidebar-user-menu__item--icon">
-								<IoSettingsSharp size={20} />
-							</Box>
-							<Box onClick={() => handleNavigate("/account")}>
-								Administración
-							</Box>
+					<Box className="sidebar-user-menu__item--container">
+						<Box className="sidebar-user-menu__item--icon">
+							<IoSettingsSharp size={20} />
 						</Box>
-					)}
+						<Box onClick={() => handleNavigate("/account")}>Administración</Box>
+					</Box>
 					<Box className="sidebar-user-menu__item--container">
 						<Box className="sidebar-user-menu__item--icon">
 							<AiFillStar size={20} />

@@ -14,8 +14,32 @@
 	padding: 16px 64px;
 }
 
+.account-page__account--container {
+}
+
 .account-page__item--card {
-	flex: auto;
+	display: grid;
+	grid-template-columns: 20% auto;
+	cursor: pointer;
+	/* flex: auto; */
+	height: 200px;
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	padding: 24px;
+}
+
+.account-page__icon--column {
+	width: auto;
+}
+
+.account-page__description--column {
+	width: auto;
+}
+
+.account-page__description--column > p {
+	color: darkgray;
+}
+
+.account-page__item--card:hover {
+	cursor: pointer;
+	background-color: #f3d4ff;
 }
