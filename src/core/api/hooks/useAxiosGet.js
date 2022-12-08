@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../../api";
 
 const useAxiosGet = (url) => {
-	const [data, setData] = useState(null);
+	const [data, setData] = useState(undefined);
 	const [error, setError] = useState("");
 	const [loaded, setLoaded] = useState(false);
 

@@ -5,6 +5,7 @@ const CategoryCard = ({
 	category: {
 		id,
 		title,
+		description,
 		image = "https://www.w3schools.com/howto/img_avatar.png",
 	},
 }) => {
@@ -22,7 +23,8 @@ const CategoryCard = ({
 				/>
 			</div>
 			<div className="category-card__detail">
-				<h2>{title}</h2>
+				<h2 className="category-card__category--title">{title}</h2>
+				<span>{description}</span>
 			</div>
 		</div>
 	);

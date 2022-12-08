@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IoLocationSharp } from "react-icons/io5";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
@@ -7,10 +7,10 @@ import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { RiYoutubeFill } from "react-icons/ri";
 
+import useAxiosGet from "core/api/hooks/useAxiosGet";
 import Box from "core/components/Box/Box";
 
 import "./Footer.css";
-import useAxiosGet from "core/api/hooks/useAxiosGet";
 
 const Footer = () => {
 	let navigate = useNavigate();

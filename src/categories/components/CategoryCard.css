@@ -13,9 +13,15 @@
 }
 
 .category-card__detail {
+	display: flex;
+	flex-direction: column;
 	width: 100%;
 	height: 100px;
 	background-color: rgba(0, 0, 0, 0.4);
 	padding: 2px 16px;
 	color: white;
+}
+
+.category-card__category--title {
+	margin-bottom: 0;
 }
