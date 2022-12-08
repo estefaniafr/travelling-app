@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useMemo } from "react";
-import { useContext, useState } from "react";
+import { useCallback, useEffect, useMemo, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { IoSettingsSharp } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import { ImKey } from "react-icons/im";
@@ -14,10 +14,18 @@ import "./AccountPage.css";
 import useAxiosDel from "core/api/hooks/useAxiosDel";
 
 export default function AccountPage() {
+	const navigate = useNavigate();
 	const { user, setUser } = useContext(UserContext);
 	const [indexOptionsMenu, setIndexOptionsMenu] = useState(0);
 	const { data: userUpdate, mutate } = useAxiosPut("/user/account");
-	const { mutate: removeAccount } = useAxiosDel("/user/remove");
+	const { mutate: removeAccount, loaded } = useAxiosDel("/user/remove");
+
+	useEffect(() => {
+		if (loaded) {
+			setUser(undefined);
+			navigate("/");
+		}
+	}, [loaded]);
 
 	const handleRemoveAccount = () => {
 		removeAccount(user._id);

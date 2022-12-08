@@ -40,6 +40,11 @@ const ManageSecuirityForm = ({ onUpdate, onDelete }) => {
 		return error;
 	};
 
+	const handleOnClose = () => {
+		setIsOpenConfirm(false);
+		onDelete();
+	};
+
 	return (
 		<>
 			<Formik initialValues={initialValues} onSubmit={handleSubmit}>
@@ -110,7 +115,7 @@ const ManageSecuirityForm = ({ onUpdate, onDelete }) => {
 				title={"Eliminar cuenta"}
 				description="Esta seguro de eliminar la cuenta?"
 				onClose={() => setIsOpenConfirm(false)}
-				onConfirm={() => onDelete()}
+				onConfirm={handleOnClose}
 			/>
 		</>
 	);
