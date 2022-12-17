@@ -38,3 +38,7 @@
 	color: white;
 	transform: rotateY(180deg);
 }
+
+.flip-card__footer {
+	position: fixed;
+}

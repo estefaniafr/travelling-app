@@ -43,3 +43,7 @@
 	cursor: pointer;
 	background-color: #f3d4ff;
 }
+
+.account-page__action--button {
+	width: 20%;
+}

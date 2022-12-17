@@ -15,3 +15,21 @@
 	border-bottom: 1px solid white;
 	border-left: 1px solid white;
 }
+
+.category-page__actions--container {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	justify-content: flex-end;
+	color: white;
+}
+
+.category-page__delete--action:hover {
+	color: red;
+	cursor: pointer;
+}
+
+.category-page__icon--action:hover {
+	color: rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+}

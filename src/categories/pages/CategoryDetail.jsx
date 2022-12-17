@@ -1,28 +1,27 @@
-import { useContext, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
+import { Outlet, useParams, useNavigate } from "react-router-dom";
 import { AiTwotoneDelete } from "react-icons/ai";
 import { BsPencilFill } from "react-icons/bs";
 
 import { UserContext } from "core/context/UserContext";
 import useAxiosGet from "core/api/hooks/useAxiosGet";
-import useAxiosDel from "core/api/hooks/useAxiosDel";
+import FlipCard from "core/components/Card/FlipCard";
 import Box from "core/components/Box/Box";
 import Grid from "core/components/Grid/Grid";
-import CategoryCard from "categories/components/CategoryCard";
 import Confirm from "core/components/Confirm/Confirm";
 import Modal from "core/components/Modal/Modal";
-import AddCategoryForm from "account/components/AddCategoryForm/AddCategoryForm";
+import AddShowForm from "account/components/AddShowForm/AddShowForm";
 
 import "./Categories.css";
 
-export default function Categories() {
+export default function CategoryDetail() {
 	let navigate = useNavigate();
 	const { isAdmin } = useContext(UserContext);
+	let { idCategory } = useParams();
 	const [isOpenConfirm, setIsOpenConfirm] = useState(false);
 	const [isOpenModal, setIsOpenModal] = useState(false);
 
-	const { data: categories = [] } = useAxiosGet("/category/list");
-	const { mutate: removeCategory, loaded } = useAxiosDel("/category/remove");
+	const { data: shows = [] } = useAxiosGet(`/show/list/${idCategory}`);
 
 	const handleOnConfirm = () => {
 		setIsOpenConfirm(false);
@@ -30,16 +29,20 @@ export default function Categories() {
 
 	return (
 		<Box className="category-page__box--container">
-			<h1 className="category-page__title--page">Categorías</h1>
-			{!categories.length && (
+			<h1 className="category-page__title--page">Shows por categoria</h1>
+			{!shows.length && (
 				<Box className="category-page__box--no-categories">
-					{"No hay categorias disponibles"}
+					{"No hay shows disponibles en esta categoría"}
 				</Box>
 			)}
+
 			<Grid container widthColumn={350}>
-				{categories.map(({ _id, ...rest }, i) => (
+				{shows.map(({ _id, ...rest }, i) => (
 					<div key={i}>
-						<CategoryCard {...rest} onClick={() => navigate(`/shows/${_id}`)} />
+						<FlipCard
+							{...rest}
+							onClick={() => navigate(`/show/${_id}/detail`)}
+						/>
 
 						{isAdmin && (
 							<div className="category-page__actions--container">
@@ -66,8 +69,8 @@ export default function Categories() {
 
 						<Confirm
 							isOpen={isOpenConfirm}
-							title={"Eliminar categoría"}
-							description={`Esta seguro de eliminar la categoría ${rest.title}?`}
+							title={"Eliminar show"}
+							description={`Esta seguro de eliminar el show ${rest.title}?`}
 							onClose={() => setIsOpenConfirm(false)}
 							onConfirm={handleOnConfirm}
 						/>
@@ -76,7 +79,7 @@ export default function Categories() {
 							isOpen={isOpenModal}
 							title={"Editar Categoría"}
 							onClose={() => setIsOpenModal(false)}
-							content={<AddCategoryForm defaultValue={rest} />}
+							content={<AddShowForm defaultValue={rest} />}
 						/>
 					</div>
 				))}

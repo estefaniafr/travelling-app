@@ -31,12 +31,6 @@
 		],
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "off",
-		"indent": [
-			"error",
-			"tab",
-			{
-				"SwitchCase": 1
-			}
-		]
+		"no-mixed-spaces-and-tabs": "off"
 	}
 }

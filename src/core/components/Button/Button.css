@@ -9,6 +9,10 @@ button {
 	outline: none;
 }
 
+.button__icon--value {
+	margin-right: 8px;
+}
+
 .button__button--wrapper {
 	width: 130px;
 	height: 40px;

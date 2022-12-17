@@ -6,16 +6,22 @@ import { ImKey } from "react-icons/im";
 
 import { UserContext } from "core/context/UserContext";
 import useAxiosPut from "core/api/hooks/useAxiosPut";
+import useAxiosDel from "core/api/hooks/useAxiosDel";
 import Box from "core/components/Box/Box";
 import ManageAccountForm from "account/components/ManageAccountForm/ManageAccountForm";
 import ManageSecurityForm from "account/components/ManageSecurityForm/ManageSecurityForm";
+import Modal from "core/components/Modal/Modal";
+import Button from "core/components/Button/Button";
+import AddCategoryForm from "account/components/AddCategoryForm/AddCategoryForm";
+import AddShowForm from "account/components/AddShowForm/AddShowForm";
 
 import "./AccountPage.css";
-import useAxiosDel from "core/api/hooks/useAxiosDel";
 
 export default function AccountPage() {
 	const navigate = useNavigate();
-	const { user, setUser } = useContext(UserContext);
+	const { user, setUser, isAdmin } = useContext(UserContext);
+	const [isOpenModal, setIsOpenModal] = useState(false);
+	const [idForm, setIdForm] = useState();
 	const [indexOptionsMenu, setIndexOptionsMenu] = useState(0);
 	const { data: userUpdate, mutate } = useAxiosPut("/user/account");
 	const { mutate: removeAccount, loaded } = useAxiosDel("/user/remove");
@@ -31,12 +37,17 @@ export default function AccountPage() {
 		removeAccount(user._id);
 	};
 
+	const handleOpenModal = (idForm) => {
+		setIdForm(idForm);
+		setIsOpenModal(true);
+	};
+
 	useEffect(() => {
 		!!userUpdate && setUser(userUpdate);
 	}, [userUpdate]);
 
 	const optionsMenu = useMemo(() => {
-		return [
+		const options = [
 			{
 				title: "Cuenta",
 				description: "Informacion de la cuenta de usuario, actualizar cuenta",
@@ -49,17 +60,24 @@ export default function AccountPage() {
 				onClick: (i) => setIndexOptionsMenu(i),
 				icon: <ImKey size={30} />,
 			},
-			{
-				title: "Configuración",
-				description: "Administracion de la aplicacíon",
-				onClick: (i) => setIndexOptionsMenu(i),
-				icon: <IoSettingsSharp size={30} />,
-			},
 		];
-	}, []);
+
+		return isAdmin
+			? [
+					...options,
+					{
+						title: "Configuración",
+						description: "Administracion de la aplicacíon",
+						onClick: (i) => setIndexOptionsMenu(i),
+						icon: <IoSettingsSharp size={30} />,
+					},
+			  ]
+			: options;
+	}, [isAdmin]);
 
 	const displayOption = useCallback(
 		(index) => {
+			const isCategory = idForm && idForm === "category";
 			switch (index) {
 				case 0:
 					return (
@@ -87,14 +105,37 @@ export default function AccountPage() {
 					return (
 						<Box className="account-page__security--container">
 							<h1>Configuracion</h1>
-							{/* <ManageShows /> */}
-							{/* Section añadir categoria */}
-							{/* Section añadir shows */}
+							<h2>Añadir Categoría</h2>
+							<Button
+								className="account-page__action--button"
+								value="Añadir Categoría"
+								onClick={() => handleOpenModal("category")}
+							/>
+
+							<h2>Añadir show</h2>
+							<Button
+								className="account-page__action--button"
+								value="Añadir show"
+								onClick={() => handleOpenModal("show")}
+							/>
+
+							<Modal
+								isOpen={isOpenModal}
+								title={isCategory ? "Añadir Categoría" : "Añadir show"}
+								onClose={() => setIsOpenModal(false)}
+								content={
+									isCategory ? (
+										<AddCategoryForm onSubmit={() => setIsOpenModal(false)} />
+									) : (
+										<AddShowForm onSubmit={() => setIsOpenModal(false)} />
+									)
+								}
+							/>
 						</Box>
 					);
 			}
 		},
-		[user]
+		[user, isOpenModal]
 	);
 
 	return (

@@ -16,22 +16,22 @@ const Confirm = ({ isOpen, onClose, title, description, onConfirm }) => {
 
 	return (
 		<>
-			<div className="modal-overlay" />
+			<div className="confirm-overlay" />
 			<div
-				className="modal-wrapper"
+				className="confirm-wrapper"
 				aria-modal
 				aria-hidden
 				tabIndex={-1}
 				role="dialog"
 			>
-				<div ref={ref} className="modal">
-					<div className="modal-header">
-						<div className="modal-header-title">
+				<div ref={ref} className="confirm">
+					<div className="confirm-header">
+						<div className="confirm-header-title">
 							<h1>{title}</h1>
 						</div>
 						<div
-							className="modal-close-button"
-							data-dismiss="modal"
+							className="confirm-close-button"
+							data-dismiss="confirm"
 							aria-label="Close"
 							onClick={() => handleOnClose()}
 						>

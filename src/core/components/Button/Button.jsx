@@ -2,10 +2,11 @@ import PropTypes from "prop-types";
 import "./Button.css";
 
 const Button = ({
+	icon,
 	className = "",
 	type = "button",
 	kind = "primary",
-	value = "button",
+	value,
 	onClick = () => ({}),
 }) => {
 	const getKindStyle = () => {
@@ -22,7 +23,10 @@ const Button = ({
 	};
 	return (
 		<button className={getKindStyle()} type={type} onClick={onClick}>
-			<div className="button__button--value">{value}</div>
+			<div className="button__button--value">
+				{icon && <div className="button__icon--value">{icon}</div>}
+				{value}
+			</div>
 		</button>
 	);
 };

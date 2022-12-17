@@ -1,0 +1,37 @@
+.add-category-form__section--title {
+	margin-bottom: 0;
+}
+
+.add-category-form__role {
+	padding: 0 8px;
+	background-color: darkgray;
+}
+
+.add-category-form__form--container {
+	margin-top: 8px;
+	padding: 8px 0;
+}
+
+.add-category-form__field {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	outline-color: rgb(84 105 212 / 0.5);
+}
+
+.add-category-form__buttons--container {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 24px;
+	padding: 24px 16px;
+	border-top: 1px solid darkgray;
+}
+
+.add-category-form__delete-account--button {
+	background-color: red;
+	width: 150px;
+}

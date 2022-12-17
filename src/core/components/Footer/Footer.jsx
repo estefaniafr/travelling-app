@@ -16,7 +16,7 @@ const Footer = () => {
 	let navigate = useNavigate();
 
 	// recuperar los shows mas recientes
-	const { data: shows = [], error, loaded } = useAxiosGet("/show/list");
+	// const { data: shows = [], error, loaded } = useAxiosGet("/show/list");
 
 	const contactList = useMemo(
 		() => [

@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+
 import { UserContext } from "core/context/UserContext";
 import Box from "core/components/Box/Box";
 import Sidebar from "core/components/Sidebar/Sidebar";
@@ -28,7 +29,7 @@ export default function Navbar() {
 
 					<NavLink to="/services">Servicios</NavLink>
 
-					<NavLink to="/shows">Espectaculos</NavLink>
+					<NavLink to="/categories">Espectaculos</NavLink>
 
 					<NavLink to="/contact">Contacto</NavLink>
 				</Box>

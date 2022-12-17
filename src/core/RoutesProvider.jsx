@@ -5,6 +5,7 @@ import { UserContext } from "core/context/UserContext";
 
 import About from "about/pages/About";
 import Categories from "categories/pages/Categories";
+import CategoryDetail from "categories/pages/CategoryDetail";
 import ShowDetail from "categories/pages/ShowDetail";
 import ContactUs from "contact/pages/ContactUs";
 import EventServices from "event-services/pages/EventServices";
@@ -20,9 +21,9 @@ const RoutesProvider = () => {
 				<Route path="/about" element={<About />} />
 				<Route path="/services" element={<EventServices />} />
 				<Route path="/contact" element={<ContactUs />} />
-				<Route path="/show/:idShow" element={<ShowDetail />} />
-				<Route path="/shows" element={<Categories />} />
-				<Route path="/shows/:idCategory" element={<div>Shows list</div>} />
+				<Route path="/show/:idShow/detail" element={<ShowDetail />} />
+				<Route path="/categories" element={<Categories />} />
+				<Route path="/shows/:idCategory" element={<CategoryDetail />} />
 				{user && (
 					<>
 						<Route path="/account" element={<AccountPage />} />
