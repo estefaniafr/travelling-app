@@ -5,6 +5,9 @@ const useAxiosGet = (url) => {
 	const [data, setData] = useState(undefined);
 	const [error, setError] = useState("");
 	const [loaded, setLoaded] = useState(false);
+	const [fetch, setRefetch] = useState(false);
+
+	const refetch = () => setRefetch(true);
 
 	useEffect(() => {
 		(async () => {
@@ -16,11 +19,12 @@ const useAxiosGet = (url) => {
 				setError(error.message);
 			} finally {
 				setLoaded(true);
+				setRefetch(false);
 			}
 		})();
-	}, []);
+	}, [url, fetch]);
 
-	return { data, error, loaded };
+	return { data, error, loaded, refetch };
 };
 
 export default useAxiosGet;

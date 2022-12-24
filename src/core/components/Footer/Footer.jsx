@@ -15,8 +15,8 @@ import "./Footer.css";
 const Footer = () => {
 	let navigate = useNavigate();
 
-	// recuperar los shows mas recientes
-	// const { data: shows = [], error, loaded } = useAxiosGet("/show/list");
+	// Recuperar los shows mas recientes añadidos en base de datos
+	const { data: shows = [] } = useAxiosGet("/show/list/news");
 
 	const contactList = useMemo(
 		() => [
@@ -34,27 +34,6 @@ const Footer = () => {
 				icon: <MdEmail size={20} />,
 				subtitle: "Email: ",
 				content: "test@test.com",
-			},
-		],
-		[]
-	);
-
-	const showsList = useMemo(
-		() => [
-			{
-				image: "https://www.w3schools.com/howto/img_avatar.png",
-				name: "Rey Leon",
-				description: new Date().toLocaleDateString(),
-			},
-			{
-				image: "https://www.w3schools.com/howto/img_avatar.png",
-				name: "Fantasia",
-				description: new Date().toLocaleDateString(),
-			},
-			{
-				image: "https://www.w3schools.com/howto/img_avatar.png",
-				name: "Magic Show",
-				description: new Date().toLocaleDateString(),
 			},
 		],
 		[]
@@ -92,19 +71,19 @@ const Footer = () => {
 					</Box>
 
 					<Box className="footer__box--news-scroll">
-						{showsList.map(({ image, name, description }, i) => (
+						{shows.map(({ _id, image, title, registerShow }, i) => (
 							<Box key={i} className="footer__box--news">
 								<Box className="footer__image--news">
 									<img src={image} alt="Avatar" width={50} height={50} />
 								</Box>
 								<Box className="footer__section--content">
 									<strong
-										onClick={() => navigate(`/show/${i}`)}
+										onClick={() => navigate(`/show/${_id}/detail`)}
 										className="footer__strong--name"
 									>
-										{name}
+										{title}
 									</strong>
-									<span>{description}</span>
+									<span>{new Date(registerShow).toLocaleDateString()}</span>
 								</Box>
 							</Box>
 						))}

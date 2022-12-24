@@ -2,7 +2,7 @@
 	padding: 24px 16px;
 	margin-top: 24px;
 	height: 280px;
-	position: static;
+	position: fixed;
 	left: 0;
 	bottom: 0;
 	width: 100%;

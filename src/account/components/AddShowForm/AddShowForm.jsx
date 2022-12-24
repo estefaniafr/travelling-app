@@ -11,7 +11,7 @@ const initialValues = {
 	subtitle: "",
 	category: "",
 	description: "",
-	image: "",
+	image: null,
 };
 
 const AddShowForm = ({ onSubmit }) => {
@@ -60,31 +60,46 @@ const AddShowForm = ({ onSubmit }) => {
 						</Box>
 
 						<Box className="add-show-form__form--container">
-							<label htmlFor="category">Categoría</label>
-							<Field
-								className="add-show-form__field"
-								name="category"
-								as="select"
-								validate={validateEmptyField}
-							>
-								{categories.map(({ _id, title }, i) => {
-									return (
-										<option key={i} value={_id}>
-											{title}
-										</option>
-									);
-								})}
-							</Field>
-							{errors.category && touched.category && (
-								<div style={{ color: "red" }}>{errors.category}</div>
-							)}
-						</Box>
-
-						<Box className="add-show-form__form--container">
 							<label htmlFor="description">Descripción show</label>
 							<Field className="add-show-form__field" name="description" />
 							{errors.description && touched.description && (
 								<div style={{ color: "red" }}>{errors.description}</div>
+							)}
+						</Box>
+
+						<Box className="add-show-form__twin--fields">
+							<Box className="add-show-form__form--container --extends">
+								<label htmlFor="category">Categoría</label>
+								<Field
+									className="add-show-form__field"
+									name="category"
+									as="select"
+									validate={validateEmptyField}
+								>
+									{categories.map(({ _id, title }, i) => {
+										return (
+											<option key={i} value={_id}>
+												{title}
+											</option>
+										);
+									})}
+								</Field>
+								{errors.category && touched.category && (
+									<div style={{ color: "red" }}>{errors.category}</div>
+								)}
+							</Box>
+
+							<Box className="add-show-form__form--container">
+								<label htmlFor="duration">Duración</label>
+								<Field className="add-show-form__field" name="duration" />
+							</Box>
+						</Box>
+
+						<Box className="add-show-form__form--container">
+							<label htmlFor="urlLink">Enlace</label>
+							<Field className="add-show-form__field" name="urlLink" />
+							{errors.urlLink && touched.urlLink && (
+								<div style={{ color: "red" }}>{errors.urlLink}</div>
 							)}
 						</Box>
 

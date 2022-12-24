@@ -1,16 +1,11 @@
-import { useRef, memo } from "react";
-import useOutsideClick from "core/hooks/useOutsideClick";
+import { memo } from "react";
 
 import "./Confirm.css";
 
 const Confirm = ({ isOpen, onClose, title, description, onConfirm }) => {
-	const ref = useRef(null);
-
 	const handleOnClose = () => {
 		onClose();
 	};
-
-	useOutsideClick(ref, handleOnClose);
 
 	if (!isOpen) return null;
 
@@ -24,7 +19,7 @@ const Confirm = ({ isOpen, onClose, title, description, onConfirm }) => {
 				tabIndex={-1}
 				role="dialog"
 			>
-				<div ref={ref} className="confirm">
+				<div className="confirm">
 					<div className="confirm-header">
 						<div className="confirm-header-title">
 							<h1>{title}</h1>

@@ -11,6 +11,7 @@ const useAxiosDel = (url) => {
 		if (payload) {
 			(async () => {
 				try {
+					setLoaded(false);
 					const response = await api.delete(`${url}/${payload}`);
 
 					setData(response.data);

@@ -1,4 +1,7 @@
+import { memo } from "react";
 import { Formik, Form, Field } from "formik";
+
+import useAxiosPost from "core/api/hooks/useAxiosPost";
 import Box from "core/components/Box/Box";
 import Button from "core/components/Button/Button";
 
@@ -11,9 +14,11 @@ const initialValues = {
 };
 
 const AddCategoryForm = ({ defaultValue, onSubmit }) => {
+	const { mutate } = useAxiosPost("/category/create");
+
 	const handleSubmit = (values) => {
-		console.log(values);
-		onSubmit();
+		!defaultValue && mutate(values);
+		onSubmit(values);
 	};
 
 	const validateEmptyField = (value) => {
@@ -65,7 +70,11 @@ const AddCategoryForm = ({ defaultValue, onSubmit }) => {
 						</Box>
 
 						<Box className="add-category-form__buttons--container">
-							<Button kind="standard" type="submit" value="Añadir" />
+							<Button
+								kind="standard"
+								type="submit"
+								value={!defaultValue ? "Añadir" : "Editar"}
+							/>
 							<Button
 								kind="primary"
 								type="reset"
@@ -80,4 +89,4 @@ const AddCategoryForm = ({ defaultValue, onSubmit }) => {
 	);
 };
 
-export default AddCategoryForm;
+export default memo(AddCategoryForm);

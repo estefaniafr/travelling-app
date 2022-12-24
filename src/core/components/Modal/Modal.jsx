@@ -1,5 +1,4 @@
-import { useRef, memo } from "react";
-import useOutsideClick from "core/hooks/useOutsideClick";
+import { memo } from "react";
 
 import "./Modal.css";
 
@@ -11,13 +10,9 @@ const Modal = ({
 	submit,
 	withActions = false,
 }) => {
-	const ref = useRef(null);
-
 	const handleOnClose = () => {
 		onClose();
 	};
-
-	useOutsideClick(ref, handleOnClose);
 
 	if (!isOpen) return null;
 
@@ -31,7 +26,7 @@ const Modal = ({
 				tabIndex={-1}
 				role="dialog"
 			>
-				<div ref={ref} className="modal">
+				<div className="modal">
 					<div className="modal-header">
 						<div className="modal-header-title">
 							<h1>{title}</h1>

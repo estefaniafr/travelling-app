@@ -42,6 +42,10 @@ export default function AccountPage() {
 		setIsOpenModal(true);
 	};
 
+	const handleCloseModal = () => {
+		setIsOpenModal(false);
+	};
+
 	useEffect(() => {
 		!!userUpdate && setUser(userUpdate);
 	}, [userUpdate]);
@@ -122,12 +126,12 @@ export default function AccountPage() {
 							<Modal
 								isOpen={isOpenModal}
 								title={isCategory ? "Añadir Categoría" : "Añadir show"}
-								onClose={() => setIsOpenModal(false)}
+								onClose={handleCloseModal}
 								content={
 									isCategory ? (
-										<AddCategoryForm onSubmit={() => setIsOpenModal(false)} />
+										<AddCategoryForm onSubmit={handleCloseModal} />
 									) : (
-										<AddShowForm onSubmit={() => setIsOpenModal(false)} />
+										<AddShowForm onSubmit={handleCloseModal} />
 									)
 								}
 							/>

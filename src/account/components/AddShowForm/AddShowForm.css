@@ -12,6 +12,15 @@
 	padding: 8px 0;
 }
 
+.add-show-form__twin--fields {
+	display: flex;
+	gap: 10%;
+}
+
+.--extends {
+	width: 60%;
+}
+
 .add-show-form__field {
 	width: 100%;
 	padding: 12px 20px;
