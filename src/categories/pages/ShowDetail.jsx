@@ -21,7 +21,6 @@ export default function ShowDetail() {
 	const { data: show, error, loaded } = useAxiosGet(`/show/${idShow}`);
 
 	if (!show) return <></>;
-	console.log(show);
 
 	return (
 		<Box className="show-detail__container">
@@ -38,6 +37,10 @@ export default function ShowDetail() {
 
 				<h3>Descripción</h3>
 				<p>{`${show.description}`}</p>
+
+				<h3>Duración</h3>
+				<p>{`${show.duration}`}</p>
+
 				<Divider />
 				<span>
 					Registrado: {new Date(show.registerShow).toLocaleDateString()}

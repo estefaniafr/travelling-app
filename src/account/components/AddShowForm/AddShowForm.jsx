@@ -1,6 +1,7 @@
 import { Formik, Form, Field } from "formik";
 
 import useAxiosGet from "core/api/hooks/useAxiosGet";
+import useAxiosPost from "core/api/hooks/useAxiosPost";
 import Box from "core/components/Box/Box";
 import Button from "core/components/Button/Button";
 
@@ -11,16 +12,19 @@ const initialValues = {
 	subtitle: "",
 	category: "",
 	description: "",
-	image: null,
+	duration: "",
+	urlLink: "",
+	image: "",
 };
 
-const AddShowForm = ({ onSubmit }) => {
-	const handleSubmit = (values) => {
-		console.log(values);
-		onSubmit();
-	};
-
+const AddShowForm = ({ defaultValue, onSubmit }) => {
 	const { data: categories = [] } = useAxiosGet("/category/list");
+	const { mutate } = useAxiosPost("/show/create");
+
+	const handleSubmit = (values) => {
+		!defaultValue && mutate(values);
+		onSubmit(values);
+	};
 
 	const validateEmptyField = (value) => {
 		let error;
@@ -32,7 +36,10 @@ const AddShowForm = ({ onSubmit }) => {
 
 	return (
 		<>
-			<Formik initialValues={initialValues} onSubmit={handleSubmit}>
+			<Formik
+				initialValues={defaultValue ?? initialValues}
+				onSubmit={handleSubmit}
+			>
 				{({ errors, touched, validateField, validateForm, values }) => (
 					<Form>
 						<Box className="add-show-form__form--container">
@@ -76,6 +83,9 @@ const AddShowForm = ({ onSubmit }) => {
 									as="select"
 									validate={validateEmptyField}
 								>
+									<option value="" selected disabled hidden>
+										Elegir categoría
+									</option>
 									{categories.map(({ _id, title }, i) => {
 										return (
 											<option key={i} value={_id}>
@@ -116,7 +126,11 @@ const AddShowForm = ({ onSubmit }) => {
 						</Box>
 
 						<Box className="add-show-form__buttons--container">
-							<Button kind="standard" type="submit" value="Añadir" />
+							<Button
+								kind="standard"
+								type="submit"
+								value={defaultValue ? "Editar" : "Añadir"}
+							/>
 							<Button
 								kind="primary"
 								type="reset"

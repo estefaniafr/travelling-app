@@ -1,10 +1,12 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Outlet, useParams, useNavigate } from "react-router-dom";
 import { AiTwotoneDelete } from "react-icons/ai";
 import { BsPencilFill } from "react-icons/bs";
 
 import { UserContext } from "core/context/UserContext";
 import useAxiosGet from "core/api/hooks/useAxiosGet";
+import useAxiosPut from "core/api/hooks/useAxiosPut";
+import useAxiosDel from "core/api/hooks/useAxiosDel";
 import FlipCard from "core/components/Card/FlipCard";
 import Box from "core/components/Box/Box";
 import Grid from "core/components/Grid/Grid";
@@ -18,14 +20,35 @@ export default function CategoryDetail() {
 	let navigate = useNavigate();
 	const { isAdmin } = useContext(UserContext);
 	let { idCategory } = useParams();
-	const [isOpenConfirm, setIsOpenConfirm] = useState(false);
-	const [isOpenModal, setIsOpenModal] = useState(false);
+	const [showIndexConfirm, setShowIndexConfirm] = useState();
+	const [showIndexModal, setShowIndexModal] = useState();
 
-	const { data: shows = [] } = useAxiosGet(`/show/list/${idCategory}`);
+	const { data: shows = [], refetch } = useAxiosGet(`/show/list/${idCategory}`);
 
-	const handleOnConfirm = () => {
-		setIsOpenConfirm(false);
+	const { data: categoryUpdated, mutate: updateCategory } =
+		useAxiosPut("/show/edit");
+
+	const { mutate: removeCategory, loaded: isDeleted } =
+		useAxiosDel("/show/remove");
+
+	const closeConfirm = () => setShowIndexConfirm(undefined);
+	const closeModal = () => setShowIndexModal(undefined);
+
+	const handleOnUpdate = (id, formValues) => {
+		updateCategory({ id, ...formValues });
+		closeModal();
 	};
+
+	const handleOnRemove = (id) => {
+		removeCategory(id);
+		closeConfirm();
+	};
+
+	useEffect(() => {
+		if (isDeleted || categoryUpdated) {
+			refetch();
+		}
+	}, [isDeleted, categoryUpdated]);
 
 	return (
 		<Box className="category-page__box--container">
@@ -50,7 +73,7 @@ export default function CategoryDetail() {
 									<span
 										className="category-page__icon--action"
 										title="Editar"
-										onClick={() => setIsOpenModal(true)}
+										onClick={() => setShowIndexModal(i)}
 									>
 										<BsPencilFill size={18} />
 									</span>
@@ -59,7 +82,7 @@ export default function CategoryDetail() {
 									<span
 										className="category-page__delete--action"
 										title="Eliminar"
-										onClick={() => setIsOpenConfirm(true)}
+										onClick={() => setShowIndexConfirm(i)}
 									>
 										<AiTwotoneDelete size={22} />
 									</span>
@@ -68,18 +91,23 @@ export default function CategoryDetail() {
 						)}
 
 						<Confirm
-							isOpen={isOpenConfirm}
+							isOpen={showIndexConfirm === i}
 							title={"Eliminar show"}
 							description={`Esta seguro de eliminar el show ${rest.title}?`}
-							onClose={() => setIsOpenConfirm(false)}
-							onConfirm={handleOnConfirm}
+							onClose={closeConfirm}
+							onConfirm={() => handleOnRemove(_id)}
 						/>
 
 						<Modal
-							isOpen={isOpenModal}
+							isOpen={showIndexModal === i}
 							title={"Editar Categoría"}
-							onClose={() => setIsOpenModal(false)}
-							content={<AddShowForm defaultValue={rest} />}
+							onClose={closeModal}
+							content={
+								<AddShowForm
+									defaultValue={rest}
+									onSubmit={(values) => handleOnUpdate(_id, values)}
+								/>
+							}
 						/>
 					</div>
 				))}
